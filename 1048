@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	char a[101],b[101],c[101];
+	scanf("%s %s",a,b);
+	int lenth1=strlen(a),lenth2=strlen(b);
+	int i,k;
+	for(i=;i<=lenth1/2-1;i++)
+	{
+		k=a[i];
+		a[i]=a[lenth1-1-i];
+		a[lenth1-1-i]=k;
+	}
+	for(i=0;i<=lenth2/2-1;i++)
+	{
+		k=b[i];
+		b[i]=b[lenth2-1-i];
+		b[lenth2-1-i]=k;
+	}
+	if(lenth1<lenth2)
+	{
+		for(i=lenth1;i<lenth2;i++)
+		a[i]='0';
+	}
+	else
+	{
+		for=(i=lenth2;i<lenth1;i++)
+		b[i]='0';
+	}
+	char s[13]={'0','1','2','3','4','5','6','7','8','9','J','Q','K'};
+	for(i=0;i<strlen(a);i++)
+	{
+		if(i%2==0)
+		c[i]=s[(a[i]-'0'+a[i]-'0')%13];
+		else
+		{
+			int temp;
+			temp=b[i]-a[i];
+			if(temp<0)
+			trmp+=10;
+			c[i]=s[temp];
+		 } 
+	}
+	for(i=strlen(c)-1;i>=0;i--)
+	printf("%c",c[i]);
+	
+}
